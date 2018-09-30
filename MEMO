@@ -1,115 +1,114 @@
-1  sudo apt-get install git
-    2  which git
-    3  sudo apt-get update
-    4  apt info sublime-text
-    5  apt show sublime-text
-    6  ll
-    7  mkdir bedroom
-    8  cd bedroom/
-    9  git clone https://okampfer@okampfer.visualstudio.com/_git/kb
-   10  cd kb
-   11  cd script/ubuntu
-   12  cd system
-   13  bash ppa/sublimetext.sh 
-   14  sudo apt-get update
-   15  sudo apt install sublime-text
-   16  which subl
-   17  cd ../../..
-   18  subl .
-   19  bash script/ubuntu/util/create_linuxbrew_home_prefix_dir.sh 
-   20  bash script/ubuntu/util/init_linuxbrew.sh 
-   21  sudo bash script/ubuntu/util/init_linuxbrew.sh 
-   22  ll /home/linuxbrew/.linuxbrew/
-   23  ll /home/linuxbrew/
-   24  ll /home/
-   25  sudo chown -R juanwang:juanwang /home/linuxbrew
-   26  ll /home/
-   27  ll /home/linuxbrew/
-   28  which brew
-   29  sudo bash script/ubuntu/util/install_ime.sh
-   30  fcitx -r
-   31  cd bedroom/kb
-   32  bash script/ubuntu/system/ppa/vscode.sh 
-   33  sudo apt update
-   34  apt install code
-   35  code .
-   36  code ~/.profile 
-   37  pyenv --help
-   38  ll ~/.pyenv/bin
-   39  which java
-   40  ll /home/linuxbrew
-   41  which brew
-   42  brew list
-   43  brew update -v
-   44  brew search jdk
-   45  brew install jdk@8
-   46  which java
-   47  ll /home/linuxbrew/.linuxbrew/bin
-   48  code ~/.profile
-   49  ll /home/linuxbrew/.linuxbrew/opt/jdk@8/bin/
-   50  brew install git
-   51  which git
-   52  which -a git
-   53  git --version
-   54  cd bedroom/kb
-   55  code .
-   56  which pip
-   57  which python
-   58  which easy_install
-   59  python --version
-   60  which python3
-   61  pip3
-   62  sudo apt install python3-pip
-   63  which pip3
-   64  sudo pip3 install --upgrade git+https://github.com/shadowsocks/shadowsocks.git@master
-   65  sudo pip3 install shadowsocks
-   66  sudo apt install python-pip2
-   67  sudo apt install python-pip
-   68  sudo pip install --upgrade git+https://github.com/shadowsocks/shadowsocks.git@master
-   69  sudo pip2 install --upgrade git+https://github.com/shadowsocks/shadowsocks.git@master
-   70  sudo pip install shadowsocks
-   71  sudo apt install gdebi -y
-   72  sudo gdebi -n /home/juanwang/Downloads/google-chrome-stable_current_amd64.deb 
-   73  bash script/ubuntu/util/install_pyenv_dependencies.sh 
-   74  bash script/ubuntu/util/share/init_pyenv.sh 
-   75  git clone https://github.com/yyuu/pyenv.git $HOME/.pyenv
-   76  git clone https://github.com/yyuu/pyenv-virtualenv.git $HOME/.pyenv/plugins/pyenv-virtualenv
-   77  pyenv --help
-   78  code bedroom/kb
-   79  code ~/Desktop/memo.txt 
-   80  code ~/.profile
-   81  which pyenv
-   82  pyenv --help
-   83  code ~/.bashrc
-   84  which pyenv
-   85  printenv
-   86  echo $PATH
-   87  eval "$(pyenv init -)"
-   88  which pyenv
-   89  pyenv init -
-   90  which pyenv
-   91  pyenv install 3.6.5
-   92  which python
-   93  python --version
-   94  which pip
-   95  pip --version
-   96  which -a pip
-   97  pyenv rehash
-   98  which pip
-   99  which -a pip
-  100  pip list
-  101  pip install --upgrade git+https://github.com/shadowsocks/shadowsocks.git@master
-  102  sudo apt-get install python-setuptools
-  103  pip install --upgrade git+https://github.com/shadowsocks/shadowsocks.git@master
-  104  which sslocal
-  105  rm -rf ~/bedroom/kb
-  106  rm -rf ~/bedroom
-  107  ll ~
-  108  git config --global user.name
-  109  code ~/.bash_profil
-  110  code ~/.bash_profile
-  111  pyenv --help
-  112  pyenv versions
-  113  echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.bash_profile
-  114  ll ~
-  115  code .
+MOMO:
+1. install git
+$ sudo apt-get install git
+$ which git
+/usr/bin/git
+
+2. install sublime. 
+$ sudo apt-get update
+$ apt-get show sublime
+$ sudo apt install sublime-text
+open sbulime with current dir.
+$ subl . 
+
+3. load script 
+Tthe whole script should under ~/bedroom/kb/script.
+$ mkdir bedroom
+$ cd bedroom
+$ mkdir kb
+$ cd kb
+$ mkdir script
+$ git clone https://github.com/wangjuanmt/kb_script.git script
+$ cd script
+Can start from ubuntu/system/init_ubuntu.
+The constant envs are defined in ubuntu/util/env_vars.sh.
+We need modify the value of $TARGET_USER and $TARGET_USER_GROUP to be the local user and user group.
+$ source ubuntu/util/env_vars.sh
+
+4. install linuxbrew
+$ bash ubuntu/util/create_linuxbrew_home_prefix_dir.sh
+$ sudo chown -R amuos:amuos /home/linuxbrew
+$ sudo bash ubuntu/util/init_linuxbrew.sh
+# Add linuxbrew to path in ~/.profile
+LINUXBREW_HOME="/home/linuxbrew/.linuxbrew"
+PATH=$LINUXBREW_HOME/bin:$PATH
+
+$ source ~/.profile
+$ which brew
+/home/linuxbrew/.linuxbrew/bin/brew
+
+5. fcitx ingnored because it has installed via ux
+
+6. brew install java
+$ brew search jdk
+$ brew install jdk@8
+$ which java
+/usr/bin/java
+# Add java
+JAVA_HOME="/home/linuxbrew/.linuxbrew/opt/jdk@8"
+PATH=$JAVA_HOME/bin:$PATH
+
+$ source ~/.profile
+$ which java
+/home/linuxbrew/.linuxbrew/opt/jdk@8/bin/java
+$ brew list (check which apps installed by brew)
+
+7. install vscode
+$ bash ubuntu/system/ppa/vscode.sh
+$ sudo apt update
+$ apt install code
+
+8. install pyenv
+$ bash ubuntu/util/install_pyenv_dependencies.sh
+$  curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
+
+# Add pyenv
+PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+
+$ source ~/.profile
+$ which pyenv
+/home/amuos/.pyenv/bin/pyenv
+
+
+9. pyenv install python
+$ pyenv install --list (to view all versions that pyenv can install)
+$ pyenv install 3.7.0
+$ pyenv versions
+* system (set by /home/amuos/.pyenv/version)
+  3.7.0
+$ pyenv global 3.7.0 (to set python version)
+$ pyenv versions
+  system
+* 3.7.0 (set by /home/amuos/.pyenv/version)
+
+Edit ~/.bashrc
+# Load pyenv only when command "pyenv" exists
+# http://stackoverflow.com/questions/592620/
+if hash pyenv 2>/dev/null; then
+    eval "$(pyenv init - bash)"
+    eval "$(pyenv virtualenv-init - bash)"
+fi
+
+$ source ~/.bashrc
+$ which python
+/home/amuos/.pyenv/shims/python
+
+
+10. install shadowsocks
+$ which pip
+/home/amuos/.pyenv/shims/pip
+$ pip install --upgrade pip
+$ pip install --upgrade git+https://github.com/shadowsocks/shadowsocks.git@master
+$ which sslocal
+/home/amuos/.pyenv/shims/sslocal
+
+11. install intellij
+$ brew search intellij
+$ brew cask install intellij-idea-ce
+Infact, i download the tar.gz from Jetbrain's website.
+$ mv ideaIC-2018.2.4.tar.gz ~/apps
+$ tar -zxvf ideaIC-2018.2.4.tar.gz
+
+12. display driver
+via system management.
