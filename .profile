@@ -29,4 +29,7 @@ PATH=$JAVA_HOME/bin:$PATH
 
 # pyenv
 PYENV_ROOT=$HOME/.pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
+PATH=$PYENV_ROOT/bin:$PATH
+
+# Add spark
+SPARK_HOME=$HOME/apps/spark-2.3.1-bin-hadoop2.7

@@ -112,3 +112,18 @@ $ tar -zxvf ideaIC-2018.2.4.tar.gz
 
 12. display driver
 via system management.
+
+13. install maven
+$ brew install maven
+$ which mvn
+/home/linuxbrew/.linuxbrew/bin/mvn
+
+14. install Spark
+download from https://spark.apache.org/downloads.html.
+
+unzip spark-2.3.1-bin-hadoop2.7.tgz
+
+move spark-2.3.1-bin-hadoop2.7 under /apps
+
+edit .profile add SPARK_HOME=/Library/spark-2.3.1-bin-hadoop2.7
+
